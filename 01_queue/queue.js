@@ -11,15 +11,14 @@ function Queue() {
     //removes first el of arr
     if (this.tail) {
       var toRemove = this.arr[this.head];
-      //decrement tail
       var newArr = [];
-      //for (var i = 1, i < this.arr)
       var i = 1;
       while (this.arr[i]) {
         newArr[i-1] = this.arr[i];
         i++;
       }
       this.arr = newArr;
+      //decrement tail
       this.tail--;
       return toRemove;
     }
