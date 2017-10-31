@@ -44,9 +44,31 @@ function LinkedList() {
     return toRemove.value;
   };
 
-    this.search = function(value) {
-      console.log(this)
-      // if node.value === value return value
+    this.search = function(arg) {
+      if (typeof arg === 'string') {
+        var current = this.head;
+        while (current) {
+          if (current.value === arg) {
+            return arg;
+          }
+          else {
+            current = current.next;
+          }
+        }
+        return null;
+      } else {
+          var current = this.head;
+          while (current) {
+            if (arg(current.value)) {
+              return current.value;
+            } else {
+              current = current.next;
+            }
+          }
+          return null;
+      }
+
+
   };
 
   this.removeTail = function() {
